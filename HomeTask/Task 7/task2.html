@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="script2.js" defer></script>
+  </head>
+
+  <body>
+    <select id="countries">
+      <option>Select country</option>
+    </select>
+    <select id="cities">
+      <option>Select city</option>
+    </select>
+  
+    <script type="text/javascript">
+        let selectCountry = document.getElementById('countries');
+        let selectCity = document.getElementById('cities');
+        let countries = ["Kazakhstan","Russia","England","France"];
+        let cities_by_country = {"Kazakhstan":["Almaty","Astana","Karagandy"],"Russia":["Moscow","Saint-Petersburg","Kazan"],"England":["London","Manchester","Liverpool"],"France":["Paris","Lyon","Marseille"]};
+
+        // select.innerHTML = "hello";
+        for (var i = 0; i < countries.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = countries[i];
+            opt.innerHTML = countries[i];
+            selectCountry.appendChild(opt);
+
+            for (var j = 0; j < cities_by_country[countries[i]].length; j++) {
+                var opt2 = document.createElement('option');
+                opt2.value = cities_by_country[countries[i]][j];
+                opt2.innerHTML = cities_by_country[countries[i]][j];
+                selectCity.appendChild(opt2);
+                // cities_by_country[countries[i]][j]
+            }
+            
+        }
+        // for (var i = 0; i < cities_by_country.length; i++) {
+            // var opt = document.createElement('option');
+            // opt.value = cities_by_country[i];
+            // opt.innerHTML = cities_by_country[i];
+            // selectCity.appendChild(opt);
+        // }
+
+        // if(select.options.length > 0) {
+        //     window.alert("Text: " + select.options[select.selectedIndex].text + "\nValue: " + select.options[select.selectedIndex].value);
+        // }
+        // else {
+        //     window.alert("Select box is empty");
+        // }
+
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,85 @@
+body {
+    margin: auto;
+}
+#matrix {
+    display: table;
+    width: 300px;
+    border: 3px solid black;
+    border-radius: 5px;
+    position: relative;
+    left: 150px;
+}
+input {
+    width: 98px;
+    height: 98px;
+    border: 1px solid black;
+    font-size: 49px;
+    text-align: center;
+}
+
+#s11 {
+    background-color: white;
+    color: black;
+}
+#s12 {
+    background-color: red;
+    color: violet;
+}
+#s13 {
+    background-color: orange;
+    color: indigo;
+}
+#s21 {
+    background-color: yellow;
+    color: blue;
+}
+#s22 {
+    background-color: green;
+    color: chartreuse;
+}
+#s23 {
+    background-color: blue;
+    color: yellow;
+}
+#s31 {
+    background-color: indigo;
+    color: orange;
+}
+#s32 {
+    background-color: violet;
+    color: red;
+}
+#s33 {
+    background-color: black;
+    color: white;
+}
+#websiteurl,
+#result {
+    font-family: monospace;
+    font-size: 40px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.1);
+    background-image: url(Rainbow.png);
+    background-repeat: repeat-x;
+    -webkit-background-clip: text;
+    animation: animate 3s linear infinite;
+}
+@keyframes animate {
+    0% {
+        background-position: right 0px top 1px;
+    }
+    100% {
+        background-position: right 700px top 1px;
+    }
+}
+#result {
+    text-align: left;
+    position: relative;
+    left: 150px;
+}
+#determinant {
+    position: relative;
+    left: 150px;
+    font-size: 24px;
+    color: green;
+}

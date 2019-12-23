@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(138, 240, 253);
+}
+#i1 {
+    width: 300px;
+    height: 180px;
+    box-shadow: 0px 10px 15px 0px rgb(86, 89, 240);
+}
+#i2 {
+    width: 300px;
+    height: 180px;
+    box-shadow: 0px 10px 15px 0px rgb(86, 89, 240);
+}
+#i3 {
+    width: 300px;
+    height: 180px;
+    box-shadow: 0px 10px 15px 0px rgb(86, 89, 240);
+}
+#i4 {
+    width: 300px;
+    height: 180px;
+    box-shadow: 0px 10px 15px 0px rgb(86, 89, 240);
+}
+.carousel {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 50px;
+    background-color: rgb(138, 240, 253);
+}
+#prev {
+    box-shadow: 0px 5px 5px 0px darkgrey;
+    width: 54px;
+    height: 54px;
+    border-radius: 100%;
+    background-image: url(prev.png);
+    background-repeat: no-repeat;
+    background-color: Transparent;
+}
+#next {
+    box-shadow: 0px 5px 5px 0px darkgrey;
+    width: 54px;
+    height: 54px;
+    border-radius: 100%;
+    background-image: url(next.png);
+    background-repeat: no-repeat;
+    background-color: Transparent;
+}
+#box {
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 40%;
+    box-shadow: 0px 10px 15px 0px rgb(235, 50, 219);
+}
+#box img {
+    width: 100%;
+}

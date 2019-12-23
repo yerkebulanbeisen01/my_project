@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <style>
+        #news {
+            border: 1px solid red;
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="news"></div>
+    <button id="sport">Load Sport news</button>
+    <button id="politics">Load Politics news</button>
+    <button id="bussiness">Load Bussiness news</button>
+
+
+    <script>
+        document.getElementById("sport").onclick = function() {
+            loadNews("mainTextSport.txt", "smallTextSport.txt");
+        }
+
+        document.getElementById("politics").onclick = function() {
+            loadNews("mainTextPolitics.txt", "smallTextPolitics.txt");
+        }
+
+        document.getElementById("bussiness").onclick = function() {
+            loadNews("mainTextBussiness.txt", "smallTextBussiness.txt");
+        }
+
+        function loadNews(filename1, filename2) {
+            fetch(filename1).then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                console.log(data);
+                document.getElementsByTagName("h1")[0].innerHTML = data;
+                return data;
+            });
+            fetch(filename2).then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                console.log(data);
+                document.getElementsByTagName("p")[0].innerHTML = data;
+                return data;
+            });
+        }
+        let data = loadNews("text.txt");
+        console.log(data);
+    </script>
+</body>
+
+</html>

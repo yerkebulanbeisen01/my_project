@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #cards .card {
+            border: 1px solid red;
+            display: flex;
+            width: 300px;
+        }
+        
+        #cards .card .title {
+            flex-grow: 1;
+        }
+        
+        #cards .card .price {
+            font-weight: bold;
+            padding-right: 20px;
+        }
+        
+        #loading {
+            display: none;
+        }
+        
+        #cards {
+            width: 300px;
+            height: 200px;
+            border: 1px solid blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button>Load</button>
+    <div>
+        <button id="sortByMaker">Sort by maker</button>
+        <button id="sortByPrice">Sort by price</button>
+    </div>
+    <div id="cards">
+        <img width="300px" height="200px" id="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+    </div>
+
+
+    <script defer>
+        /* Write your code here */
+        document.getElementsByTagName("button")[0].onclick = function() {
+            load("data.json");
+        };
+
+        document.getElementById("sortByMaker").onclick = function() {
+            SortMaker("data.json");
+        };
+
+        document.getElementById("sortByPrice").onclick = function() {
+            SortMaker("data1.json");
+        };
+
+
+
+        function SortMaker(JsonF) {
+            const empty = document.getElementById("cards");
+            while (empty.firstChild) {
+                empty.removeChild(empty.firstChild);
+            }
+            fetch(JsonF).then(response => {
+                return response.json();
+            }).then(data => {
+                let cards = document.getElementById("cards");
+                let arr = [];
+                for (let i in data) {
+                    arr.push(i);
+                }
+                arr.sort();
+                console.log(arr);
+                for (let i in arr) {
+                    let div = document.createElement("div");
+                    div.style.display = "flex";
+                    div.style.border = "1px solid red";
+                    div.innerHTML = arr[i];
+                    let p = document.createElement("span");
+                    p.style.fontWeight = "bold";
+                    p.style.marginLeft = "15em";
+                    p.innerHTML = data[arr[i]];
+                    div.appendChild(p);
+                    cards.appendChild(div);
+
+                }
+            });
+        }
+
+        function load(JsonF) {
+            const empty = document.getElementById("cards");
+            while (empty.firstChild) {
+                empty.removeChild(empty.firstChild);
+            }
+            fetch(JsonF).then(response => {
+                return response.json();
+            }).then(data => {
+                let cards = document.getElementById("cards");
+                for (let i in data) {
+                    let div = document.createElement("div");
+                    div.style.display = "flex";
+                    //div.style.height = 200 / data.length + "%"; //"20px";
+                    div.style.border = "1px solid red";
+                    //console.log(i);
+                    div.innerHTML = i;
+                    let p = document.createElement("span");
+                    p.style.fontWeight = "bold";
+                    p.style.marginLeft = "15em";
+
+                    p.innerHTML = data[i];
+                    div.appendChild(p);
+                    cards.appendChild(div);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
